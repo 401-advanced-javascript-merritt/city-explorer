@@ -1,3 +1,4 @@
+
 import React from 'react';
 import WeatherContainer from '../containers/weatherContainer.js';
 import MovieContainer from '../containers/movieContainer.js';
@@ -20,6 +21,7 @@ class Homepage extends React.Component{
     console.log(this.state.location);
     this.getData();
   }
+  
   getData = () => {
     superagent.get('https://city-explorer-backend.herokuapp.com/location')
     .query(`data=${this.state.location}`)
@@ -57,7 +59,7 @@ class Homepage extends React.Component{
       {
       this.state.map &&
       this.state.map.body.latitude && this.state.map.body.longitude ? 
-      <img id="map" className='' src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.state.map.body.latitude}%2c%20${this.state.map.body.longitude}&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyCYm2S_FyENayp5ssHD_aD0zjhO2fM9EK8`} alt="Map of search query"/> : '' }
+      <img id="map" className='' src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.state.map.body.latitude}%2c%20${this.state.map.body.longitude}&zoom=13&size=600x300&maptype=roadmap&key=${process.env.REACT_APP_GOOGLE_API_KEY}`} alt="Map of search query"/> : '' }
       {
         this.state.map ? (<h2 className='query-placeholder'>Here are the results for {this.state.map.body.formatted_query}</h2>):''
       }

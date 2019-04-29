@@ -5,7 +5,7 @@ class HikingContainer extends React.Component {
   render(){
     return <section className='movie-container'>
     <h3>Results from the Hiking Project API</h3>
-      <ul class='trails-results'>
+      <ul className='trails-results'>
     {
       this.props.data.map( (item, idx) => (
         <li key={idx}>

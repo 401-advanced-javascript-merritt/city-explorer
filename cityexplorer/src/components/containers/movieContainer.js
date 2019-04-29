@@ -5,7 +5,7 @@ class MovieContainer extends React.Component {
   render(){
     return <section className='movie-container'>
     <h3>Results from the Movie API</h3>
-      <ul class='movies-results'>
+      <ul className='movies-results'>
     {
       this.props.data.map( (item, idx) => (
         <li key={idx}>
